@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
-<title>KCC 금강컨트리클럽</title>
+<title>20502최재경</title>
 <link rel="stylesheet" type="text/css" href="css/kcc_style.css" />
 <link rel="stylesheet" type="text/css" href="js/jquery/flexslider/flexslider.css" />
 <script type="text/javascript" src="js/jquery/jquery-1.11.2.min.js"></script>
@@ -137,9 +137,9 @@
 						<div class="art_tit_wrap">
 							<h3 class="article_tit">상세정보 입력</h3>
 							<p class="tip"><em>*</em>표시는 필수입력 항목입니다.</p>
-						</div>					
+						</div>			
+                                            <form method="post" action="kccSignInView.php" name="kccform">
 						<div class="enter_area">
-                                                    <form method="post" action="kccSignInView.php" name="kccform">
                                                     <?php
                                                         try{
                                                             $pdo = new PDO('mysql:host=localhost; dbname=kccsignin; charset=utf8', 'root', '');
@@ -148,27 +148,6 @@
                                                         } catch (Exception $Exception) {
                                                             die('접속오류: '.$Exception->getMessage()."<br>");
                                                         }
-                                                    //DB 설정
-//                                                    $db_host = 'localhost';
-//                                                    $db_user = 'root';
-//                                                    $db_database = 'kccsignin';
-//                                                    
-//                                                    //DB연결
-//                                                    $connect = mysql($db_host, $db_user) or die(mysql_error());
-//                                                    mysql_select_db($db_database, $connect) or die(mysql_error());
-//                                                    mysql_query("SET NAMES 'utf8'", $connect) or die(mysql_error());
-//                                                    
-//                                                    //DB에 데이터 입력
-//                                                    $query = "insert into kccsignin(KoreanName, EnglishName, BirthDay, ID, Password, PhoneNumber, CellphoneNumber, SMS, EMail, HomePost, HomeAdress1, HomeAdress2, DM, CompanyName, JobKind, Position, CompanyPost, CompanyAdress1, CompanyAdress2, CompanyNumber, FaxNumber, WeddingCheck, WeddingDate) values('$KoreanName', '$EnglishName', '$BirthDay', '$ID', '$Password', '$PhoneNumber', '$CellphoneNumber', '$SMS', '$EMail', '$HomePost', '$HomeAdress1', '$HomeAdress2', '$DM', '$CompanyName', '$JobKind', '$Position', '$CompanyPost', '$CompanyAdress1', '$CompanyAdress2', '$CompanyNumber', '$FaxNumber', '$WeddingCheck', '$WeddingDate')";
-//                                                    $result = mysql_query($query);
-//                                                    
-//                                                    //DB입력시 오류가 있다면 오류를 출력하고 없으면 DB연결 끊기
-//                                                    if(!$result) die(mysql_error());
-//                                                    mysql_close($connect);
-//                                                    
-//                                                    //처리가 완료되면 성공 메세지 보여주고 이동할 페이지로 이동
-//                                                    echo "<script>alert(\'input Success!\');</script>";
-//                                                    echo "<script>localtion.href='http://127.0.0.1/PhpProject1/kccSignInView.php'</script>";
                                                     ?>
                                                         <fieldset>
 							<table class="enter_form">
@@ -185,7 +164,7 @@
 								<th><span>생년월일</span><em>*</em></th>
 								<td>
 									<div class="sel_box year">
-                                                                            <select name="BirthDay" class="mot">
+                                                                            <select name="BirthDay1" class="mot">
                                                                                 <?php
                                                                                     for($i = 1917; $i < 2017; $i++) {
                                                                                     print "<option value='".$i."'>".$i."</option>";
@@ -195,7 +174,7 @@
 									</div>
 									<span class="year_txt">년</span>
 									<div class="sel_box">
-                                                                            <select name="BirthDay" class="mot">
+                                                                            <select name="BirthDay2" class="mot">
                                                                                 <?php
                                                                                     for($i = 1; $i < 13; $i++) {
                                                                                     print "<option value='".$i."'>".$i."</option>";
@@ -205,7 +184,7 @@
 									</div>
 									<span class="year_txt">월</span>
 									<div class="sel_box">
-                                                                            <select name="BirthDay" class="mot">
+                                                                            <select name="BirthDay3" class="mot">
                                                                                 <?php
                                                                                     for($i = 1; $i < 32; $i++) {
                                                                                     print "<option value='".$i."'>".$i."</option>";
@@ -242,7 +221,7 @@
 								<th><span>전화번호</span></th>
 								<td>
 									<div class="sel_box phone">
-                                                                            <select name="PhoneNumber" class="mot">
+                                                                            <select name="PhoneNumber1" class="mot">
                                                                                 <option value="1">02</option>
                                                                                 <option value="2">031</option>
                                                                                 <option value="3">032</option>
@@ -250,16 +229,16 @@
                                                                             </select>
 									</div>
 									<span class="hyphen">-</span>
-                                                                        <input name="PhoneNumber" type="text" id="tel_m" title="전화번호 중간 번호 입력" class="inptxt w41">		
+                                                                        <input name="PhoneNumber2" type="text" id="tel_m" title="전화번호 중간 번호 입력" class="inptxt w41">		
 									<span class="hyphen">-</span>
-                                                                        <input name="PhoneNumber" type="text" id="tel_e" title="전화번호 마지막 번호 입력" class="inptxt w41">
+                                                                        <input name="PhoneNumber3" type="text" id="tel_e" title="전화번호 마지막 번호 입력" class="inptxt w41">
 								</td>
 							</tr>
 							<tr>
 								<th><span>휴대폰번호</span><em>*</em></th>
 								<td>
 									<div class="sel_box phone">
-                                                                            <select name="CellphoneNumber" class="mot">
+                                                                            <select name="CellphoneNumber1" class="mot">
                                                                                 <option value="1">010</option>
                                                                                 <option value="2">011</option>
                                                                                 <option value="3">016</option>
@@ -267,9 +246,9 @@
                                                                             </select>
 									</div>
 									<span class="hyphen">-</span>
-									<input name="CellphoneNumber" type="text" id="mobile_m" title="휴대폰 중간 번호 입력" class="inptxt w41">		
+									<input name="CellphoneNumber2" type="text" id="mobile_m" title="휴대폰 중간 번호 입력" class="inptxt w41">		
 									<span class="hyphen">-</span>
-									<input name="CellphoneNumber" type="text" id="mobile_e" title="휴대폰 마지막 번호 입력" class="inptxt w41">
+									<input name="CellphoneNumber3" type="text" id="mobile_e" title="휴대폰 마지막 번호 입력" class="inptxt w41">
 									<span class="tip2">예약시 휴대폰으로 문자가 발송됩니다.</span>
 								</td>
 							</tr>				
@@ -278,12 +257,12 @@
 								<td>
 									<div class="rdo_wrap">
 										<span class="rdo_btn" onclick="fn_smsclick('Y');">
-										<input type="radio" name="SMS" id="agreement_y" checked="checked" value="">
+                                                                                    <input type="radio" name="SMS" id="agreement_y" value="SMS_y" checked="checked" value="">
 										<span class="rdo_on" id="agree_fake_y"></span>
 										</span>
 										<label for="agreement_y">예</label>
 										<span class="rdo_btn" onclick="fn_smsclick('N');">
-										<input type="radio" name="SMS" id="agreement_n" value="">
+										<input type="radio" name="SMS" id="agreement_n" value="SMS_n" value="">
 										<span class="rdo_off" id="agree_fake_n"></span>
 										</span>
 										<label for="agreement_n">아니오</label>
@@ -294,15 +273,15 @@
 							<tr>
 								<th><label for="email">E-MAIL</label></th>
 								<td>
-									<input type="EMail" id="email" class="inptxt">
+									<input name="EMail" id="email" class="inptxt">
 								</td>
 							</tr>
 							<tr>
 								<th><span>자택 우편번호</span><em>*</em></th>
 								<td>
-                                                                    <input name="HomePost" type="text" id="h_postcode1" class="inptxt w23">		
+                                                                    <input name="HomePost1" type="text" id="h_postcode1" class="inptxt w23">		
 									<span class="hyphen">-</span>
-                                                                    <input name="HomePost" type="text" id="h_postcode2" class="inptxt w23">
+                                                                    <input name="HomePost2" type="text" id="h_postcode2" class="inptxt w23">
 									<a href="#" class="btn_img btn_cnfrm"><span class="btn_img">우편번호 찾기</span></a>
 								</td>
 							</tr>
@@ -317,12 +296,12 @@
 								<th><span>DM발송처</span><em>*</em></th>
 								<td class="rdo_wrap">
 									<span class="rdo_btn">
-									<input type="radio" name="DM" id="home" checked="checked">
+                                                                            <input type="radio" name="DM" id="home" value="DM_y" checked="checked">
 									<span class="rdo_on"></span>
 									</span>
 									<label for="home">자택</label>
 									<span class="rdo_btn">
-									<input type="radio" name="DM" id="office">
+									<input type="radio" name="DM" value="DM_n" id="office">
 									<span class="rdo_off"></span>
 									</span>
 									<label for="office">직장</label>
@@ -349,9 +328,9 @@
 							<tr>
 								<th><span>직장 우편번호</span><em>*</em></th>
 								<td>
-                                                                    <input name="Compan yPost" type="text" id="o_postcode1" class="inptxt w23">		
+                                                                    <input name="Compan yPost1" type="text" id="o_postcode1" class="inptxt w23">		
 									<span class="hyphen">-</span>
-                                                                    <input name="CompanyPost" type="text" id="o_postcode2" class="inptxt w23">
+                                                                    <input name="CompanyPost2" type="text" id="o_postcode2" class="inptxt w23">
 									<a href="#" class="btn_img btn_cnfrm"><span class="btn_img">우편번호 찾기</span></a>
 								</td>
 							</tr>
@@ -366,7 +345,7 @@
 								<th><span>직장전화번호</span></th>
 								<td>
 									<div class="sel_box phone">
-                                                                            <select name="CompanyNumber" class="mot">
+                                                                            <select name="CompanyNumber1" class="mot">
                                                                                 <option value="1">010</option>
                                                                                 <option value="2">011</option>
                                                                                 <option value="3">016</option>
@@ -374,16 +353,16 @@
                                                                             </select>  
 									</div>
 									<span class="hyphen">-</span>
-									<input name="CompanyNumber" type="text" id="office_tel_m" title="직장전화 중간 번호 입력" class="inptxt w41">		
+									<input name="CompanyNumber2" type="text" id="office_tel_m" title="직장전화 중간 번호 입력" class="inptxt w41">		
 									<span class="hyphen">-</span>
-									<input name="CompanyNumber" type="text" id="office_tel_e" title="직장전화 마지막 번호 입력" class="inptxt w41">
+									<input name="CompanyNumber3" type="text" id="office_tel_e" title="직장전화 마지막 번호 입력" class="inptxt w41">
 								</td>
 							</tr>
 							<tr>
 								<th><span>팩스번호</span></th>
 								<td>
 									<div class="sel_box phone">
-										<select name="FaxNumber" class="mot">
+										<select name="FaxNumber1" class="mot">
                                                                                 <option value="1">010</option>
                                                                                 <option value="2">011</option>
                                                                                 <option value="3">016</option>
@@ -391,21 +370,21 @@
                                                                             </select>  
 									</div>
 									<span class="hyphen">-</span>
-									<input name="FaxNumber" type="text" id="fax_m" title="팩스 중간번호 입력" class="inptxt w41">
+									<input name="FaxNumber2" type="text" id="fax_m" title="팩스 중간번호 입력" class="inptxt w41">
 									<span class="hyphen">-</span>
-									<input name="FaxNumber" type="text" id="fax_e" title="팩스 마지막번호 입력" class="inptxt w41">
+									<input name="FaxNumber3" type="text" id="fax_e" title="팩스 마지막번호 입력" class="inptxt w41">
 								</td>
 							</tr>			
 							<tr>
 								<th><span>결혼여부</span></th>
 								<td class="rdo_wrap">
 									<span class="rdo_btn">
-									<input type="radio" name="WeddingCheck" id="single">
+                                                                            <input type="radio" name="WeddingCheck" value="single" id="single">
 									<span class="rdo_on"></span>
 									</span>
 									<label for="single">미혼</label>
 									<span class="rdo_btn">
-									<input type="radio" name="WeddingCheck" id="married">
+                                                                            <input type="radio" name="WeddingCheck" value="married" id="married">
 									<span class="rdo_off"></span>
 									</span>
 									<label for="married">기혼</label>
@@ -415,7 +394,7 @@
 								<th><span>결혼기념일</span></th>
 								<td>
 									<div class="sel_box year">
-                                                                            <select name="WeddingDate" class="mot">
+                                                                            <select name="WeddingDate1" class="mot">
                                                                                 <?php
                                                                                     for($i = 1917; $i < 2017; $i++) {
                                                                                     print "<option value='".$i."'>".$i."</option>";
@@ -425,7 +404,7 @@
 									</div>
 									<span class="year_txt">년</span>
 									<div class="sel_box">
-                                                                            <select name="WiddingDate" class="mot">
+                                                                            <select name="WiddingDate2" class="mot">
                                                                                 <?php
                                                                                     for($i = 1; $i < 13; $i++) {
                                                                                     print "<option value='".$i."'>".$i."</option>";
@@ -435,7 +414,7 @@
 									</div>
 									<span class="year_txt">월</span>
 									<div class="sel_box">
-                                                                            <select name="WeddingDate" class="mot">
+                                                                            <select name="WeddingDate3" class="mot">
                                                                                 <?php
                                                                                     for($i = 1; $i < 32; $i++) {
                                                                                     print "<option value='".$i."'>".$i."</option>";
@@ -450,10 +429,17 @@
 						</fieldset>
                                                 <div class="btn_wrap">
                                                     <input type="submit" value="취소" style="font-size: 20px;">
+                                                    <?php
+                                                        $sql = "INSERT INTO kccsignin (KoreanName, EnglishName, BirthDay, ID, Passward, PhoneNumber, CellphoneNumber, SMS, EMail, HomePost1, HomeAdress1, HomeAdress2, DM, CompanyName, JobKind, Position, CompanyPost1, CompanyAdress1, CompanyAdress2, CompanyNumber, FaxNumber, WeddingCheck, WeddingDate) VALUES (:KoreanName, :EnglishName, :BirthDay1+:BirthDay2+:BirthDay3, :ID, :Passward, :PhoneNumber1+:PhoneNumber2+:PhoneNumber3, :CellphoneNumber1+:CellphoneNumber2+:CellphoneNumber3, :SMS, :EMail, :HomePost1+:HomePost2, :HomeAdress1, :HomeAdress2, :DM, :CompanyName, :JobKind, :Position, :CompanyPost1+:CompanyPost2, :CompanyAdress1, :CompanyAdress2, :CompanyNumber1+:CompanyNumber2+:CompanyNumber3, :FaxNumber1+:FaxNumber2+:FaxNumber3, :WeddingCheck, :WeddingDate1+:WeddingDate2+:WeddingDate3, :WeddingDate3)";
+                                                        $prepare = $pdo->prepare($sql);
+                                                            
+                                                        $prepare->bindValue(':KoreanName', 'JavaScript', PDO::PARAM_STR);
+                                                        $prepare->execute();
+                                                    ?>
                                                     <input type="submit" value="다음" style="background-color:#1666b1; color: #ffffff; font-size: 20px;">
                                                 </div>
-                                                </form>
 						</div>
+                                            </form>
 					</div>
 				</div>
 				</div>	
